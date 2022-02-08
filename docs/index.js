@@ -10,6 +10,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   let constructors = new Map();
   // wait until the document loads before scanning
   window.addEventListener("load", function () {
+    alert('2022-02-07 19:06');
     const thisObjectNode = outputXML.createElement("object");
     thisObjectNode.setAttribute("name", "window");
     outputXML.documentElement.appendChild(thisObjectNode);
@@ -60,13 +61,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (propertyDescriptor.hasOwnProperty("writable")) {
           nodeProperty.setAttribute("type", "data");
           nodeProperty.setAttribute("writable", propertyDescriptor.writable ? "yes" : "no");
-          addDescription(thisConstructorPath + "." + strPropertyName, thisConstructor[propertyName], nodeProperty);
+//          addDescription(thisConstructorPath + "." + strPropertyName, thisConstructor[propertyName], nodeProperty);
         } else {
           nodeProperty.setAttribute("type", "accessor");
           nodeProperty.setAttribute("getter", (propertyDescriptor.hasOwnProperty("get")) ? "yes" : "no");
           nodeProperty.setAttribute("setter", (propertyDescriptor.hasOwnProperty("set")) ? "yes" : "no");
           try {
-            addDescription(thisConstructorPath + "." + strPropertyName, thisConstructor[propertyName], nodeProperty);
+//            addDescription(thisConstructorPath + "." + strPropertyName, thisConstructor[propertyName], nodeProperty);
           } catch (e) {
             nodeProperty.setAttribute("typeof", "error");
             nodeProperty.appendChild(outputXML.createTextNode(e.toString()));
